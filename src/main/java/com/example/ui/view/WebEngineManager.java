@@ -20,13 +20,9 @@ public final class WebEngineManager {
 			}
 		});
 
-		this.engine.setOnAlert(event -> {
-			System.out.println("[ALERT] " + event.getData());
-		});
+		this.engine.setOnAlert(event -> System.out.println("[ALERT] " + event.getData()));
 
-		this.engine.setOnError(event -> {
-			System.out.println("[ERROR] " + event.getMessage());
-		});
+		this.engine.setOnError(event -> System.out.println("[ERROR] " + event.getMessage()));
 	}
 
 	public static void initialize(WebEngine engine) {
