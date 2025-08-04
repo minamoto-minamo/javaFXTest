@@ -1,0 +1,5 @@
+window:
+  title: "test title"
+  size:
+    width: 800
+    height: 600
