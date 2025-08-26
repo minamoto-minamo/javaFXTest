@@ -7,8 +7,8 @@ import com.example.ui.util.HtmlException;
 public class HtmlServiceFactory {
 	public static HtmlService create(Object[] args) throws HtmlException {
 		return switch (args[0].toString()) {
-			case LoadPageService.action -> new LoadPageService(args);
-			case LogMessageService.action -> new LogMessageService(args);
+			case LoadPageService.action -> new LoadPageService(args[1].toString());
+			case LogMessageService.action -> new LogMessageService(args[1].toString());
 			default -> throw new HtmlException("不明な動作タイプを検出しました。");
 		};
 	}

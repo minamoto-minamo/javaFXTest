@@ -41,6 +41,7 @@ public final class WebEngineManager {
 
 	public void loadPage(String name) {
 		engine.load(ResourceLoader.getHTMLUrl(name));
+		throw new RuntimeException("aaaa");
 	}
 
 }

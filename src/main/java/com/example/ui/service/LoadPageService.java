@@ -9,8 +9,8 @@ public class LoadPageService implements HtmlService {
 	public static final String action = "loadPage";
 	private final String pageName;
 
-	public LoadPageService(Object[] args){
-		pageName = args[1].toString();
+	public LoadPageService(String pageName){
+		this.pageName =pageName;
 	}
 
 	@Override
@@ -20,7 +20,7 @@ public class LoadPageService implements HtmlService {
 		} catch (IllegalArgumentException e) {
 			throw new HtmlException("呼びだし先のページが見つかりません");
 		} catch (Exception e) {
-			throw new HtmlException("ページの呼び出し時に不明なエラーが発生しました。");
+			throw new HtmlException("ページの呼び出し時に不明なエラーが発生しました。", e);
 		}
 	}
 }

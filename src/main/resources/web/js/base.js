@@ -1,8 +1,17 @@
 document.addEventListener("DOMContentLoaded", async () => {
-	await new Promise((r, j, c = 0, i = setInterval(() =>
-		window.javaConnector ? (clearInterval(i), r()) : ++c > 20 && (clearInterval(i), j()), 100)))
-		.catch(() => AlertMessage.danger("System error!!"));
-	
+	await new Promise((resolve, reject) => {
+		let count = 0;
+		const timer = setInterval(() => {
+			if (window.javaConnector) {
+				clearInterval(timer);
+				resolve();
+			} else if (++count > 20) {
+				clearInterval(timer);
+				reject();
+			}
+		}, 100);
+	}).catch(() => AlertMessage.danger("System error!!"));
+
 	//ページ遷移
 	document.addEventListener("click", function page(e) {
 		const target = e.target.closest("[data-target-page]");
